@@ -1,5 +1,8 @@
 package ch.qos.logback.classic.integration;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
 import ch.qos.logback.classic.Logger;
@@ -23,7 +26,20 @@ public class JoranTest {
 	}
 	
 	@Test
+	public void missingFile() throws JoranException {
+		try {
+			configure(IntegrationConstants.JORAN_INPUT_PREFIX + "inexistent_file9238.xml");
+			fail("we should not reach here");
+		} catch(JoranException e) {
+			assertTrue(e.getMessage().startsWith("Could not open"));
+			return;
+		}
+		fail("nor here");
+	}
+	
+	
+	@Test
 	public void simpleList() throws JoranException {
-		//configure(ClassicTestConstants.JORAN_INPUT_PREFIX + "simpleList.xml");
+      configure(IntegrationConstants.JORAN_INPUT_PREFIX + "simpleList.xml");
 	}
 }
