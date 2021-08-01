@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration>
 
-<configuration xmlns:logback='http://ch.qos.logback/'>
+<configuration debug="false">
 
+
+  <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+  
   <appender name="LIST" class="ch.qos.logback.core.read.ListAppender"/>
-    
+    <logger name="ch.qos.logback.classic.joran">
+    <level value="INFO" />
+  </logger>
+
   <root>
     <level value="DEBUG" />
     <appender-ref ref="LIST" />
