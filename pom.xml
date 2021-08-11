@@ -7,7 +7,7 @@
 
   <groupId>ch.qos.logback.integration</groupId>
   <artifactId>logback-integration-parent</artifactId>
-  <version>1.3.0-alpha7-SNAPSHOT</version>
+  <version>1.3.0-alpha8-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Logback-Integration-Parent</name>
@@ -54,7 +54,7 @@
     <!-- slf4j.version property is used below, in
          logback-classic/pom.xml, /logback-examples/src/main/resources/setClasspath.cmd, download.htnl
     -->    
-    <slf4j.version>2.0.0-alpha3-SNAPSHOT</slf4j.version>
+    <slf4j.version>2.0.0-alpha4-SNAPSHOT</slf4j.version>
     <cal10n.version>0.8.1</cal10n.version>
     <consolePlugin.version>1.1.0</consolePlugin.version>
     <tomcat.version>9.0.50</tomcat.version>
@@ -113,6 +113,12 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk-platform-logging</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
 

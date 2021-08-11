@@ -22,7 +22,7 @@ public class JoranTest {
 	Logger logger = loggerContext.getLogger(this.getClass().getName());
 	Logger root = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
 	int diff = 1000; //RandomUtil.getPositiveInt();
-
+ 
 	void configure(String file) throws JoranException {
 		JoranConfigurator jc = new JoranConfigurator();
 		jc.setContext(loggerContext);
@@ -68,4 +68,19 @@ public class JoranTest {
 		assertTrue(statusUtil.containsMatch(Status.WARN,
 				"Please use \"level\" attribute within <logger> or <root> elements instead."));
 	}
+	
+	
+	
+	// https://jira.qos.ch/browse/LOGBACK-1551
+	@Test
+	public void withScanAndShutdownHook() throws JoranException, InterruptedException {
+		configure(IntegrationConstants.JORAN_INPUT_PREFIX + "withScanAndShutdownHook.xml");
+		int REPS = 3;
+		for(int i = 0; i < REPS; i++) {
+			logger.debug("Hello {} "+i);
+			Thread.sleep(10000);
+		}
+		System.out.println("Exiting test methodc called withScanAndShutdownHook");
+	}
+	
 }

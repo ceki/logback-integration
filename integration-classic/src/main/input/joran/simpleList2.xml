@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration>
+
+<configuration xmlns:logback='http://ch.qos.logback/'>
+
+  <appender name="LIST" class="ch.qos.logback.classic.helpers.WithLayoutListAppender">
+    <pattern>%d %thread %class %method %line  %m%n%caller{6}%n</pattern>
+  </appender>
+    
+  <root>
+    <level value="DEBUG" />
+    <appender-ref ref="LIST" />
+  </root>
+  
+</configuration>
+  

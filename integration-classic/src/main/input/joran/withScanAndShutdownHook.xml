@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration>
+
+<configuration scan="true"  scanPeriod="5 seconds">
+
+
+  <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+  
+  <appender name="LIST" class="ch.qos.logback.core.read.ListAppender"/>
+ 
+  <root level="DEBUG">
+    <appender-ref ref="LIST" />
+  </root>
+    
+  <shutdownHook/>
+</configuration>
+  
